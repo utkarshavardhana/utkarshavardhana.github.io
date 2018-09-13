@@ -1,1 +1,42 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Utkarsha Vardhana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <head>
+        <center>
+            <a id="nav-toggle" href="javascript:void(0);" onclick="navbarToggle()">&#9776</a>
+        </center>
+    </head>
+    <nav id="navbar">
+        <li><a href="#">&lt;me/&gt;</a></li>
+        <li><a href="#">&lt;stdies/&gt;</a></a></li>
+        <li><a href="#">&lt;projects/&gt;</a></a></li>
+        <li><a href="#">&lt;certifications/&gt;</a></a></li>
+    </nav>
+    <center>
+        <div id="photo">
+            <img src="https://media.licdn.com/dms/image/C4E03AQGGhXGKFx8iqg/profile-displayphoto-shrink_200_200/0?e=1542240000&v=beta&t=MzuIFYSIqfc34Nf8Rwi7UfMPkUL1fOMG7_iZ3W-XmlQ" alt="linkedin photo">
+        </div>
+    </center>
+    <script>
+        var activity=0;
+        function navbarToggle(){
+            if(activity!=0){
+                document.getElementById('navbar').setAttribute("style", "position: absolute; visibility: none;");
+                document.getElementById('nav-toggle').setAttribute("style", "color: #000;");
+                activity=activity+1;
+            }else{
+                document.getElementById('navbar').setAttribute("style", "position: relative; visibility: visible;");
+                document.getElementById('nav-toggle').setAttribute("style", "color: #ff0000;");
+                activity=activity-1;
+            }
+        }
+    </script>
+</body>
+</html>
