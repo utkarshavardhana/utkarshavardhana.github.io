@@ -12,12 +12,21 @@
   <meta property="og:description" content="Software engineer. Building for the middle mile of the internet." />
   <meta property="og:type" content="website" />
 
-  <!-- Type -->
+  <!-- Type — own stylesheet ships first (renders the layout), webfonts are
+       loaded async via `media="print" onload` swap so they never block
+       first paint. iOS Chrome was stalling on the Google Fonts CSS before
+       this; trimmed the weights to what we actually use too. -->
+  <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap"
+    media="print" onload="this.media='all'"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" />
+  </noscript>
 </head>
 <body>
   <!-- Custom magnetic cursor (hidden on touch devices via CSS) -->

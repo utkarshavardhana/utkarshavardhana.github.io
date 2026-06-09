@@ -358,6 +358,12 @@ img, svg { display: block; max-width: 100%; }
   height: 100%;
   border-radius: 50%;
   overflow: hidden;
+  /* iOS Chrome/Safari don't always clip absolutely-positioned children with
+     their own transforms/filters to the parent's border-radius. Adding an
+     explicit mask-image guarantees the circular clip on every engine. */
+  -webkit-mask-image: radial-gradient(circle, #000 99%, transparent 100%);
+          mask-image: radial-gradient(circle, #000 99%, transparent 100%);
+  isolation: isolate;
   border: 1px solid var(--line-strong);
   box-shadow:
     0 30px 80px rgba(0, 0, 0, 0.4),
@@ -366,6 +372,11 @@ img, svg { display: block; max-width: 100%; }
   transform: rotateX(var(--ty)) rotateY(var(--tx));
   transition: transform .25s var(--ease-quick);
   will-change: transform;
+}
+/* Guarantee inner layers also round, so even if iOS escapes the mask we
+   still have round children. */
+.hero-portrait-frame > * {
+  border-radius: 50%;
 }
 .hero-portrait-img {
   position: absolute;
