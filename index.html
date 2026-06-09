@@ -1,50 +1,419 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Utkarsha Vardhana</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Utkarsha Vardhana — Software Engineer</title>
+  <meta name="description" content="L5 Software Engineer at Amazon Relay. I build systems for the middle mile of the internet — compliance, dispatch, and developer tooling." />
+  <meta name="theme-color" content="#0b0b0c" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Utkarsha Vardhana" />
+  <meta property="og:description" content="Software engineer. Building for the middle mile of the internet." />
+  <meta property="og:type" content="website" />
+
+  <!-- Type -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <head>
-        <center style="padding-top: 1em">
-            <a id="nav-toggle" href="javascript:void(0);" style="color: white; font-size: -webkit-xxx-large;" onclick="navbarToggle()">&#9776</a>
-        </center>
-    </head>
-    <nav id="navbar">
-        <li><a href="#">&lt;me/&gt;</a></li>
-        <li><a href="#">&lt;academics/&gt;</a></a></li>
-        <li><a href="#">&lt;projects/&gt;</a></a></li>
-        <li><a href="#">&lt;certifications/&gt;</a></a></li>
+  <!-- Custom magnetic cursor (hidden on touch devices via CSS) -->
+  <div class="cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+  </div>
+
+  <!-- Top nav: brand left, anchor links right. Stays put; doesn't fix-position
+       so vertical rhythm reads as one continuous editorial spread. -->
+  <header class="nav">
+    <a href="#top" class="nav-brand" data-magnetic>
+      <span class="nav-brand-mark">UV</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#work" data-magnetic>Work</a>
+      <a href="#stack" data-magnetic>Stack</a>
+      <a href="#writing" data-magnetic>Writing</a>
+      <a href="#contact" data-magnetic>Contact</a>
     </nav>
-    <main>
-        <center>
-            <div id="photo">
-                <img width="70%" src="image.svg" alt="image">
-            </div>
-            <h1>you know me. <br>still...</h1>
-        </center>
-    </main>
-    <footer style="padding-top: 2em">
-        <center>
-            <a id="linkedin" href="https://www.linkedin.com/in/utkarsha-vardhana"><img src="data:image/png;base64,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"></a>
-        </center>
-    </footer>
-    <script>
-        var activity=0;
-        function navbarToggle(){
-            if(activity!=0){
-                document.getElementById('navbar').setAttribute("style", "position: absolute; visibility: none;");
-                document.getElementById('nav-toggle').setAttribute("style", "color: #fff; font-size: -webkit-xxx-large;");
-                activity=activity+1;
-            }else{
-                document.getElementById('navbar').setAttribute("style", "position: relative; visibility: visible;");
-                document.getElementById('nav-toggle').setAttribute("style", "color: #fff; font-size: -webkit-xxx-large;");
-                activity=activity-1;
-            }
-        }
-    </script>
+    <a href="#contact" class="nav-cta" data-magnetic>Say hi <span>↗</span></a>
+  </header>
+
+  <!-- ========== HERO ==========
+       WebGL canvas paints a noise-driven aurora behind the type.
+       Type is the focal point; canvas is wallpaper. Portrait sits on the
+       right with parallax tilt and a soft amber halo. -->
+  <section id="top" class="hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+    <!-- Inline SVG filter library. Used by the portrait paint layer to fake
+         a brushstroke / painterly look on hover. -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <filter id="painterly" x="-5%" y="-5%" width="110%" height="110%">
+          <!-- Brush distortion: turbulence drives a displacement map, so
+               edges of the image look hand-painted, not photographic. -->
+          <feTurbulence type="fractalNoise" baseFrequency="0.012 0.018" numOctaves="2" seed="3" result="noise"/>
+          <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G" result="warped"/>
+          <!-- Soften — gives the wash that watercolor-bleed feel -->
+          <feGaussianBlur in="warped" stdDeviation="0.4" result="soft"/>
+          <!-- Push contrast + slight saturation lift to read as illustration -->
+          <feColorMatrix in="soft" type="matrix" values="
+            1.10 0     0     0  -0.02
+            0    1.10  0     0  -0.02
+            0    0     1.10  0  -0.02
+            0    0     0     1  0" result="punched"/>
+          <feComposite in="punched" in2="SourceGraphic" operator="over"/>
+        </filter>
+      </defs>
+    </svg>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <div class="hero-meta">
+          <span class="hero-meta-dot" aria-hidden="true"></span>
+          <span>Gurugram, India</span>
+          <span class="hero-meta-sep" aria-hidden="true"></span>
+          <span>Available for collaborations</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-line"><span class="hero-word" data-split>Utkarsha</span></span>
+          <span class="hero-line">
+            <span class="hero-word" data-split>Vardhana</span><span class="hero-period">.</span>
+          </span>
+        </h1>
+
+        <p class="hero-lede">
+          SDE-2 at Amazon, on the team behind
+          <a href="https://relay.amazon.com" target="_blank" rel="noopener noreferrer">Amazon Relay</a> —
+          customer-facing systems that take very high TPS, where milliseconds
+          and correctness both matter. Off the clock, I ship complete products
+          end to end.
+        </p>
+
+        <div class="hero-cta">
+          <a href="#work" class="btn btn-primary" data-magnetic>
+            See selected work
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="#contact" class="btn btn-ghost" data-magnetic>Get in touch</a>
+        </div>
+      </div>
+
+      <!-- Portrait side. The figure gets parallax tilt via JS (data-portrait
+           hook), a procedural amber halo via ::before, a film-grain overlay
+           via ::after, and a slow breathing animation. -->
+      <figure class="hero-portrait" data-portrait>
+        <div class="hero-portrait-halo" aria-hidden="true"></div>
+        <div class="hero-portrait-frame">
+          <!-- Two stacked photos: the bottom is the real photo, the top is
+               the same photo with an SVG brush-displacement filter applied.
+               On hover we cross-fade to the painted layer. -->
+          <img src="me.jpeg" alt="Utkarsha Vardhana" class="hero-portrait-img hero-portrait-photo" loading="eager" decoding="async" />
+          <img src="me.jpeg" alt="" class="hero-portrait-img hero-portrait-paint" aria-hidden="true" loading="eager" decoding="async" />
+          <div class="hero-portrait-wash" aria-hidden="true"></div>
+          <div class="hero-portrait-grain" aria-hidden="true"></div>
+          <div class="hero-portrait-rim" aria-hidden="true"></div>
+        </div>
+        <div class="hero-portrait-orbit" aria-hidden="true">
+          <span class="hero-portrait-orbit-dot"></span>
+        </div>
+      </figure>
+
+      <div class="hero-marquee" aria-hidden="true">
+        <div class="hero-marquee-track">
+          <span>React · Vite</span><span>·</span>
+          <span>Node · Fastify · Express</span><span>·</span>
+          <span>TypeScript · Java · Scala · C++</span><span>·</span>
+          <span>Postgres · Turso · Supabase</span><span>·</span>
+          <span>AWS</span><span>·</span>
+          <span>PWA · Service Workers</span><span>·</span>
+          <!-- Repeated for seamless scroll -->
+          <span>React · Vite</span><span>·</span>
+          <span>Node · Fastify · Express</span><span>·</span>
+          <span>TypeScript · Java · Scala · C++</span><span>·</span>
+          <span>Postgres · Turso · Supabase</span><span>·</span>
+          <span>AWS</span><span>·</span>
+          <span>PWA · Service Workers</span><span>·</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <span class="hero-scroll-line"></span>
+    </div>
+  </section>
+
+  <!-- ========== INTRO STRIP ==========
+       Big-type, slow-read intro. Word-by-word reveal as it scrolls into view. -->
+  <section class="intro">
+    <p class="intro-eyebrow">About</p>
+    <p class="intro-body" data-reveal-words>
+      I work on customer-facing systems at scale — the kind that take
+      millions of requests, can't afford a bad p99, and have to keep
+      shipping while they're being rebuilt mid-flight. I like the work
+      because every decision shows up in latency, error rate, or someone's
+      day. On weekends I scratch the same itch in miniature: a full
+      product, end to end, alone.
+    </p>
+  </section>
+
+  <!-- ========== WORK ========== -->
+  <section id="work" class="work">
+    <div class="section-head">
+      <p class="section-eyebrow">Weekend projects</p>
+      <h2 class="section-title">
+        Shipped, end to end<span class="section-period">.</span>
+      </h2>
+    </div>
+
+    <div class="projects">
+      <!-- Each .project is one weekend product. Card links to the live demo;
+           the GitHub link sits inside the card so the magnetic cursor still
+           tracks both. -->
+      <article class="project" data-magnetic data-magnet-snap>
+        <header class="project-header">
+          <span class="project-num">01</span>
+          <h3 class="project-title">
+            <span data-warp>Heirly</span>
+          </h3>
+          <span class="project-year">2025</span>
+        </header>
+        <p class="project-desc">
+          Family office dashboard for ultra-HNIs. Tracks
+          multi-generational wealth across assets, liabilities, and
+          nominees, with AI-driven insights and real-time market data.
+        </p>
+        <div class="project-tags">
+          <span>React</span>
+          <span>Express</span>
+          <span>Supabase</span>
+          <span>AI</span>
+        </div>
+        <div class="project-actions">
+          <a class="project-action project-action-primary" href="https://heirly.vercel.app" target="_blank" rel="noopener noreferrer" data-magnetic>
+            Visit demo <span aria-hidden="true">↗</span>
+          </a>
+          <a class="project-action" href="https://github.com/utkarshavardhana/heirly" target="_blank" rel="noopener noreferrer" data-magnetic>
+            Source <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="project" data-magnetic data-magnet-snap>
+        <header class="project-header">
+          <span class="project-num">02</span>
+          <h3 class="project-title">
+            <span data-warp>Tinkerbit</span>
+          </h3>
+          <span class="project-year">2025</span>
+        </header>
+        <p class="project-desc">
+          Daily puzzle hub with 22 brain games. Streaks, achievements,
+          per-game leaderboards, cross-device sign-in, admin analytics.
+          Installable PWA with an offline service worker.
+        </p>
+        <div class="project-tags">
+          <span>React</span>
+          <span>Vite</span>
+          <span>Fastify</span>
+          <span>Turso</span>
+          <span>PWA</span>
+        </div>
+        <div class="project-actions">
+          <a class="project-action project-action-primary" href="https://tinkerbit.vercel.app" target="_blank" rel="noopener noreferrer" data-magnetic>
+            Visit demo <span aria-hidden="true">↗</span>
+          </a>
+          <a class="project-action" href="https://github.com/utkarshavardhana/tinkerbit" target="_blank" rel="noopener noreferrer" data-magnetic>
+            Source <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="project" data-magnetic data-magnet-snap>
+        <header class="project-header">
+          <span class="project-num">03</span>
+          <h3 class="project-title">
+            <span data-warp>nurtureyourcells</span>
+          </h3>
+          <span class="project-year">2025</span>
+        </header>
+        <p class="project-desc">
+          A dietitian's site with bookings and a public health snapshot
+          tool — BMI, WHR, BP, sugar, thyroid, and lipid panels measured
+          against clinical ranges and shared with the practitioner on
+          booking. Rich-text blog with inline image and video editing,
+          Instagram embeds, and free Jitsi video consults.
+        </p>
+        <div class="project-tags">
+          <span>React</span>
+          <span>Vite</span>
+          <span>Fastify</span>
+          <span>Turso</span>
+          <span>Magic-link</span>
+        </div>
+        <div class="project-actions">
+          <a class="project-action project-action-primary" href="https://nurtureyourcells.vercel.app" target="_blank" rel="noopener noreferrer" data-magnetic>
+            Visit demo <span aria-hidden="true">↗</span>
+          </a>
+          <a class="project-action" href="https://github.com/utkarshavardhana/nurtureyourcells" target="_blank" rel="noopener noreferrer" data-magnetic>
+            Source <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="project" data-magnetic data-magnet-snap>
+        <header class="project-header">
+          <span class="project-num">04</span>
+          <h3 class="project-title">
+            <span data-warp>satyendranarayansingh</span>
+          </h3>
+          <span class="project-year">2025</span>
+        </header>
+        <p class="project-desc">
+          A Hindi writer's home for personal essays, history, and
+          literature. Bilingual EN / हिं UI with Tiro Devanagari
+          typography, long-form reading with TOC, footnotes, and
+          drop-caps. Series, topics, year archive, per-essay search,
+          and rich link previews for WhatsApp / X.
+        </p>
+        <div class="project-tags">
+          <span>React</span>
+          <span>Vite</span>
+          <span>Fastify</span>
+          <span>Turso</span>
+          <span>Bilingual</span>
+        </div>
+        <div class="project-actions">
+          <a class="project-action project-action-primary" href="https://www.satyendranarayansingh.com" target="_blank" rel="noopener noreferrer" data-magnetic>
+            Visit demo <span aria-hidden="true">↗</span>
+          </a>
+          <a class="project-action" href="https://github.com/utkarshavardhana/satyendranarayansingh" target="_blank" rel="noopener noreferrer" data-magnetic>
+            Source <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="project" data-magnetic data-magnet-snap>
+        <header class="project-header">
+          <span class="project-num">05</span>
+          <h3 class="project-title">
+            <span data-warp>UPS Management</span>
+          </h3>
+          <span class="project-year">2024</span>
+        </header>
+        <p class="project-desc">
+          A school ERP — attendance, exams, fees, report cards. Four
+          user roles spanning parents, teachers, admins, and students;
+          42 database tables behind it. Installable PWA, mobile-first.
+        </p>
+        <div class="project-tags">
+          <span>React</span>
+          <span>Postgres</span>
+          <span>PWA</span>
+        </div>
+        <div class="project-actions">
+          <a class="project-action project-action-primary" href="https://ups-management.vercel.app" target="_blank" rel="noopener noreferrer" data-magnetic>
+            Visit demo <span aria-hidden="true">↗</span>
+          </a>
+          <a class="project-action" href="https://github.com/utkarshavardhana/ups-management" target="_blank" rel="noopener noreferrer" data-magnetic>
+            Source <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== STACK ========== -->
+  <section id="stack" class="stack">
+    <div class="section-head">
+      <p class="section-eyebrow">Stack</p>
+      <h2 class="section-title">
+        Tools I reach for<span class="section-period">.</span>
+      </h2>
+    </div>
+
+    <div class="stack-tags">
+      <span>React</span>
+      <span>Vite</span>
+      <span>Node</span>
+      <span>Fastify</span>
+      <span>Express</span>
+      <span>TypeScript</span>
+      <span>Java</span>
+      <span>Scala</span>
+      <span>C++</span>
+      <span>Postgres</span>
+      <span>Turso · libSQL</span>
+      <span>Supabase</span>
+      <span>SQLite</span>
+      <span>AWS</span>
+      <span>Lambda</span>
+      <span>DynamoDB</span>
+      <span>SNS · SQS</span>
+      <span>CDK</span>
+      <span>Vercel</span>
+      <span>PWA · Service Workers</span>
+      <span>Magic-link auth</span>
+      <span>Docker</span>
+      <span>Linux</span>
+    </div>
+  </section>
+
+  <!-- ========== WRITING ==========
+       Pull-quote pattern + a couple of links. Will be backed by real posts
+       once you wire that in; for now it's an honest "in progress" block. -->
+  <section id="writing" class="writing">
+    <div class="section-head">
+      <p class="section-eyebrow">Writing</p>
+      <h2 class="section-title">
+        Notes &amp; talks<span class="section-period">.</span>
+      </h2>
+    </div>
+    <p class="writing-empty">
+      Posts coming. Until then —
+      <a href="https://github.com/utkarshavardhana" target="_blank" rel="noopener noreferrer" data-magnetic>my GitHub</a>
+      is the closest thing to a journal.
+    </p>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact" class="contact">
+    <h2 class="contact-title">
+      <span class="contact-line">Have a problem worth</span>
+      <span class="contact-line"><em>shipping?</em></span>
+    </h2>
+    <p class="contact-lede">
+      I read every email. The fastest reply is on LinkedIn.
+    </p>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/utkarsha-vardhana" target="_blank" rel="noopener noreferrer" class="contact-link" data-magnetic data-magnet-snap>
+        <span class="contact-link-label">LinkedIn</span>
+        <span class="contact-link-handle">/in/utkarsha-vardhana</span>
+        <span class="contact-link-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a href="https://github.com/utkarshavardhana" target="_blank" rel="noopener noreferrer" class="contact-link" data-magnetic data-magnet-snap>
+        <span class="contact-link-label">GitHub</span>
+        <span class="contact-link-handle">@utkarshavardhana</span>
+        <span class="contact-link-arrow" aria-hidden="true">↗</span>
+      </a>
+      <a href="mailto:utkarshavardhana85@gmail.com" class="contact-link" data-magnetic data-magnet-snap>
+        <span class="contact-link-label">Email</span>
+        <span class="contact-link-handle">utkarshavardhana85@gmail.com</span>
+        <span class="contact-link-arrow" aria-hidden="true">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> Utkarsha Vardhana</span>
+    <span class="footer-mark">Gurugram / Internet</span>
+  </footer>
+
+  <script src="script.js" defer></script>
 </body>
 </html>
