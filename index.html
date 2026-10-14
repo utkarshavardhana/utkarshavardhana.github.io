@@ -197,9 +197,12 @@
           maintain. Effects in every signature, checked contracts, atomic
           typechecked edits, and native code that beats C++. In a benchmark
           of 17 coding tasks, agents writing SSPUR used 0.67x the tokens of
-          Python and were level with TypeScript and Go; native code ran the
-          benchmark programs in 0.16x to 0.88x of C++'s time. Runs on macOS,
-          Linux and Windows, or right in the browser.
+          Python and were level with TypeScript and Go; on codebases of about
+          1,000 definitions they used 0.59x TypeScript's and 0.58x Go's.
+          Native code runs the benchmark programs in 0.14x to 0.89x of C++'s
+          time, with peak memory near or below C++'s on all but the GPU
+          one. Runs on macOS, Linux and Windows, or right in the browser,
+          and powers a live dashboard, SSPUR Pulse.
         </p>
         <div class="project-tags">
           <span>Rust</span>
