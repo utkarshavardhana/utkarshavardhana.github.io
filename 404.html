@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page not found</title>
+<script>
+// SSPUR's docs, playground, Pulse and package registry moved to sspurlang.github.io; old links keep working.
+(function () {
+  var p = location.pathname;
+  if (/^\/sspur(-packages)?(\/|$)/.test(p)) location.replace("https://sspurlang.github.io" + p + location.search + location.hash);
+})();
+</script>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main style="max-width:40rem;margin:20vh auto;padding:0 1.5rem;text-align:center">
+<h1>Page not found</h1>
+<p><a href="/">Go to the home page</a>. Looking for SSPUR? It lives at <a href="https://sspurlang.github.io/sspur/">sspurlang.github.io/sspur</a>.</p>
+</main>
+</body>
+</html>
